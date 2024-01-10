@@ -20,7 +20,7 @@ $equipment = $controllers->equipment()->get_all_equipments();
             <?php foreach ($equipment as $equip): ?> <!-- Loop through each equipment item -->
                 <tr>
                     <td>
-                        <img src="<?= htmlspecialchars($equip['image']) ?>" <!-- Display equipment image with escaping for security -->
+                        <img src="<?= htmlspecialchars($equip['image']) ?>"
                              alt="Image of <?= htmlspecialchars($equip['description']) ?>" 
                              style="width: 100px; height: auto;"> 
                     </td>

@@ -1,4 +1,5 @@
 <?php
+
     
     foreach(glob('./classes/*.php') as $file)
     {

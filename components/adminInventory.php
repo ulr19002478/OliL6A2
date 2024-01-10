@@ -30,10 +30,10 @@ $equipment = $controllers->equipment()->get_all_equipments();
                     <td><?= htmlspecialchars($equip['description']) ?></td>
                     <td>
                         <!-- Edit button linking to the edit page -->
-                        <a href="edit_equipment.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Edit</a>
+                        <a href="equipment_update.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Edit</a>
 
                         <!-- Delete button using a form for confirmation -->
-                        <a href="functions/delete_equipment.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Delete</a>
+                        <a href="delete_equipment.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Delete</a>
                     </td> 
                 </tr>
             <?php endforeach; ?>

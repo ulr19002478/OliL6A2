@@ -36,9 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     redirect('adminInventory');
   }
 }
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
 $equipment = $controllers->equipment()->get_equipment_by_id($_GET['id']);
-}
 
 ?>
 

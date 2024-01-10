@@ -28,10 +28,12 @@
                 <td><?= htmlspecialchars($member['lastname']) ?></td> 
                 <td><?= htmlspecialchars($member['email']) ?></td> 
                 <td><?= htmlspecialchars($controllers->roles()->get_rolename_by_id($member['role_id'])['name']) ?></td>
-                <td>    <a href="updateUsers.php?id=<?php echo $member['ID']?>" class="btn btn-primary">Edit</a>
+                <td>
+                        <a href="updateUsers.php?id=<?php echo $member['ID']?>" class="btn btn-primary">Edit</a>
 
 
-                        <a href="delete_users.php?id=<?php echo $member['ID']?>" class="btn btn-primary">Delete</a></td>
+                        <a href="delete_users.php?id=<?php echo $member['ID']?>" class="btn btn-primary">Delete</a>
+                </td> 
 
             </tr>
         <?php endforeach; ?>

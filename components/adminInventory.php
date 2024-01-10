@@ -9,6 +9,10 @@ $equipment = $controllers->equipment()->get_all_equipments();
 <!-- HTML for displaying the equipment inventory -->
 <div class="container mt-4">
     <h2>Equipment Inventory</h2> 
+    <div class="mb-3">
+        <!-- Button to navigate to the Add Equipment form -->
+        <a href="addEquipment.php" class="btn btn-primary">Add Equipment</a>
+    </div>
     <table class="table table-striped"> 
         <thead>
             <tr>

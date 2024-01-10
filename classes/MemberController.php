@@ -82,7 +82,7 @@ class MemberController {
         }
     }
     
-    public function get_role_by_id(int $id)
+    public function get_role_id(int $id)
     {
         // This SQL query checks the members role by their ID
         $sql = "SELECT role_id FROM users WHERE id = :id";

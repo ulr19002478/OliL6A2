@@ -31,6 +31,20 @@
       <li class="nav-item">
         <a class="nav-link" href="./login.php">Login</a>
       </li>
+      <?php
+      // this checks to see if the account is an admin account or not, by checking if the ID is 2, if the ID is 2 it knows you are an admin and will show these links in the navbar.
+          if (isset($_SESSION['user'])):
+            if ($controllers->members()->get_role_id($_SESSION['user']['ID'])['role_id'] == 2): ?>
+          <li class="nav-item active">
+            <a class="nav-link" href="./adminEquipment.php">Admin Equipment</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./adminRoles.php">Admin Roles</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./adminUsers.php">Admin Users</a>
+          </li>
+          <?php endif; endif;?>
     </ul>
   </div>
 </nav>

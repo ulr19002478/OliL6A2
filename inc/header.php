@@ -36,7 +36,7 @@
           if (isset($_SESSION['user'])):
             if ($controllers->members()->get_role_id($_SESSION['user']['ID'])['role_id'] == 2): ?>
           <li class="nav-item active">
-            <a class="nav-link" href="./adminEquipment.php">Admin Equipment</a>
+            <a class="nav-link" href="./adminInventory.php">Admin Inventory</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="./adminRoles.php">Admin Roles</a>

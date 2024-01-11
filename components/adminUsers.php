@@ -8,6 +8,7 @@
 
 <!-- HTML for displaying the equipment inventory -->
 <h2>Users</h2> 
+<a href="addUser.php" class="btn btn-success mb-3">Add User</a>
 <table class="table table-striped"> 
         <tr>
             <th>ID</th> 

@@ -2,6 +2,10 @@
 // Include the functions file for utility functions
 require_once './inc/functions.php';
 
+// Retrieve all suppliers and categories data using the respective controllers
+$suppliers = $controllers->suppliers()->get_all_suppliers();
+$categories = $controllers->categories()->get_all_categories();
+
 // Initialize a variable to store any error message from the query string
 $message = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
 
@@ -11,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = InputProcessor::processString($_POST['name']);
     $description = InputProcessor::processString($_POST['description']);
     $image = InputProcessor::processString($_POST['image']);
+    $supplier_id = InputProcessor::processString($_POST['supplier_id']);
+    $catergory_id = InputProcessor::processString($_POST['catergory_id']); // Keep the original name
 
     // Validate all inputs
-    $valid = $name['valid'] && $description['valid'] && $image['valid'];
+    $valid = $name['valid'] && $description['valid'] && $image['valid'] && $supplier_id['valid'] && $catergory_id['valid'];
 
     // Set an error message if any input is invalid
     $message = !$valid ? "Please fix the above errors:" : '';
@@ -25,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'name' => $name['value'],
             'description' => $description['value'],
             'image' => $image['value'],
+            'supplier_id' => $supplier_id['value'],
+            'catergory_id' => $catergory_id['value'], // Use the correct name
         ];
 
         // Create new equipment in the database
@@ -70,12 +78,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <small class="text-danger"><?= htmlspecialchars($image['error'] ?? '') ?></small>
                             </div>
 
+                            <!-- Supplier Selection Dropdown -->
+                            <div class="form-group">
+                                <label for="supplier">Supplier:</label>
+                                <select class="form-control" id="supplier" name="supplier_id">
+                                    <?php foreach ($suppliers as $supplier) : ?>
+                                        <option value="<?= htmlspecialchars($supplier['id']) ?>">
+                                            <?= htmlspecialchars($supplier['name']) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+                            <!-- Category Selection Dropdown -->
+                            <div class="form-group">
+                                <label for="catergory">Catergory:</label>
+                                <select class="form-control" id="catergory" name="catergory_id">
+                                    <?php foreach ($categories as $catergory) : ?>
+                                        <option value="<?= htmlspecialchars($catergory['id']) ?>">
+                                            <?= htmlspecialchars($catergory['name']) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
                             <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Add Equipment</button>
 
                             <?php if ($message): ?>
-                            <div class="alert alert-danger mt-4">
-                                <?= $message ?? '' ?>
-                            </div>
+                                <div class="alert alert-danger mt-4">
+                                    <?= $message ?? '' ?>
+                                </div>
                             <?php endif ?>
 
                         </div>

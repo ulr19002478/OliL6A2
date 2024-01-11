@@ -19,6 +19,8 @@ $equipment = $controllers->equipment()->get_all_equipments();
                 <th>Image</th> 
                 <th>Name</th> 
                 <th>Description</th>
+                <th>Category</th> <!-- New column for category -->
+                <th>Supplier</th> <!-- New column for supplier -->
                 <th>Actions</th> <!-- New column for edit and delete buttons -->
             </tr>
         </thead>
@@ -26,17 +28,17 @@ $equipment = $controllers->equipment()->get_all_equipments();
             <?php foreach ($equipment as $equip): ?> <!-- Loop through each equipment item -->
                 <tr>
                     <td>
-                        <img src="<?= htmlspecialchars($equip['image']) ?>"
-                             alt="Image of <?= htmlspecialchars($equip['description']) ?>" 
+                        <img src="<?= htmlspecialchars($equip['image'] ?? '') ?>"
+                             alt="Image of <?= htmlspecialchars($equip['description'] ?? '') ?>" 
                              style="width: 100px; height: auto;"> 
                     </td>
-                    <td><?= htmlspecialchars($equip['name']) ?></td> 
-                    <td><?= htmlspecialchars($equip['description']) ?></td>
+                    <td><?= htmlspecialchars($equip['name'] ?? '') ?></td> 
+                    <td><?= htmlspecialchars($equip['description'] ?? '') ?></td>
+                    <td><?= isset($equip['catergory_name']) ? htmlspecialchars($equip['catergory_name']) : '' ?></td>
+                    <td><?= isset($equip['supplier_name']) ? htmlspecialchars($equip['supplier_name']) : '' ?></td>
                     <td>
-                        <a href="equipment_update.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Edit</a>
-
-
-                        <a href="delete_equipment.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Delete</a>
+                        <a href="equipment_update.php?id=<?= htmlspecialchars($equip['id'] ?? '') ?>" class="btn btn-primary">Edit</a>
+                        <a href="delete_equipment.php?id=<?= htmlspecialchars($equip['id'] ?? '') ?>" class="btn btn-primary">Delete</a>
                     </td> 
                 </tr>
             <?php endforeach; ?>

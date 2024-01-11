@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="card-body p-5 text-center">
 
               <h3 class="mb-2">Register</h3>
-              <p>test</p>
               <div class="form-outline mb-4">
                 <input required type="text" id="fname" name="fname" class="form-control form-control-lg" placeholder="Firstname" value="<?= htmlspecialchars($fname['value'] ?? '') ?>"/>
                 <small class="text-danger"><?= htmlspecialchars($fname['error'] ?? '') ?></small>

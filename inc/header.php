@@ -44,6 +44,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="./adminUsers.php">Admin Users</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./adminSuppliers.php">Manage Suppliers</a>
+          </li>
           <?php endif; endif;?>
     </ul>
   </div>

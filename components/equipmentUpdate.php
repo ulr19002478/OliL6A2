@@ -27,7 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $args = ['name' => $name['value'],
              'description' => $description['value'],
              'image' => $image['value'],
-             'id' => $_POST['id']];
+             'id' => $_POST['id'],
+             'supplier_id' => intval($_POST['supplier_id']),
+             'category_id' => intval($_POST['catergory_id']),
+            ];
 
              print_r($args);
 
@@ -67,6 +70,28 @@ $equipment = $controllers->equipment()->get_equipment_by_id($_GET['id']);
                 <input required type="text" id="image" name="image" class="form-control form-control-lg" placeholder="Image" value="<?= htmlspecialchars($equipment['image'] ?? '') ?>"/>
                 <small class="text-danger"><?= htmlspecialchars($image['error'] ?? '') ?></small>
               </div>
+              <div class="form-group">
+                    <label for="supplier">Supplier:</label>
+                    <select class="form-control" id="supplier" name="supplier_id">
+                        <?php foreach ($suppliers as $supplier) : ?>
+                            <option value="<?= htmlspecialchars($supplier['id']) ?>" <?= ($equipmentDetails['supplier_id'] == $supplier['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($supplier['name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <!-- Category Selection Dropdown -->
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select class="form-control" id="category" name="category_id">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= htmlspecialchars($category['id']) ?>" <?= ($equipmentDetails['catergory_id'] == $category['id']) ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($category['name']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
               <input type="hidden" id="id" name="id" value="<?= $equipment['id'] ?>"/>
 
 

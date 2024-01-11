@@ -33,7 +33,6 @@ $equipment = $controllers->equipment()->get_all_equipments();
                     <td><?= htmlspecialchars($equip['name']) ?></td> 
                     <td><?= htmlspecialchars($equip['description']) ?></td>
                     <td>
-
                         <a href="equipment_update.php?id=<?= htmlspecialchars($equip['id']) ?>" class="btn btn-primary">Edit</a>
 
 

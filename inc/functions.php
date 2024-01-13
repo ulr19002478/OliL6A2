@@ -8,11 +8,13 @@
 
     $controllers = new Controllers(); //Instantiate controllers
 
-    function redirect($page, array $params = [])
-    {
-        $qs = $params ? '?' . http_build_query($params) : '';
-        header("Location:$page.php" . $qs);
-        exit;
+    if (!function_exists('redirect')) {
+        function redirect($page, array $params = [])
+        {
+            $qs = $params ? '?' . http_build_query($params) : '';
+            header("Location: $page.php" . $qs);
+            exit;
+        }
     }
 
 

@@ -1,8 +1,4 @@
 <?php
-// Clear all session variables
-session_unset(); 
-
-// Include the functions file for utility functions
 require_once './inc/functions.php';
 
 // Initialize variables for message, email, and password
@@ -36,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
          // Redirect based on user type
          if ($member['user_type'] === 'admin') {
-          redirect('.\Inventory.php'); // Redirect admin users
+          redirect('member'); // Redirect admin users
       } else {
           redirect('member'); // Redirect non-admin users
       }

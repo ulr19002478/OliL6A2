@@ -1,6 +1,4 @@
 <?php
-// Start the session to maintain user state
-session_start();
 // Clear all session variables
 session_unset(); 
 

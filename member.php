@@ -1,5 +1,4 @@
 <?php 
-    session_start(); 
     require_once 'inc/functions.php';
 
     if (!isset($_SESSION['user'])) {

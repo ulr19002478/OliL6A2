@@ -25,7 +25,7 @@ $categories = $controllers->categories()->get_all_categories();
                     <td><?= htmlspecialchars($category['id']) ?></td> 
                     <td><?= htmlspecialchars($category['name']) ?></td> 
                     <td>
-                        <a href="categoryUpdate.php?id=<?= htmlspecialchars($category['id']) ?>" class="btn btn-primary">Edit</a>
+                        <a href="categoriesUpdate.php?id=<?= htmlspecialchars($category['id'] ?? '') ?>" class="btn btn-primary">Edit</a>
 
 
                         <a href="delete_categories.php?id=<?= htmlspecialchars($category['id']) ?>" class="btn btn-primary">Delete</a>

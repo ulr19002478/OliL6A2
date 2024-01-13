@@ -81,9 +81,13 @@ $user = $controllers->members()->get_member_by_id($_GET['id']);
               </div>
 
               <div class="form-outline mb-4">
-                <input required type="number" id="role" name="role" class="form-control form-control-lg" placeholder="Role" />
-                <small class="text-danger"><?= htmlspecialchars($roles['error'] ?? '') ?></small>
-              </div>
+                                <select required id="role" name="role" class="form-control form-control-lg">
+                                    <option value="" disabled selected>Select a Role</option>
+                                    <option value="2">Admin</option>
+                                    <option value="1">User</option>
+                                </select>
+                                <small class="text-danger"><?= htmlspecialchars($role['error'] ?? '') ?></small>
+                            </div>
 
               <input type="hidden" id="id" name="id" value="<?= htmlspecialchars($user['ID'] ?? '') ?>">
 
